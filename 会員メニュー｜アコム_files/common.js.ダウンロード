@@ -1,0 +1,79 @@
+
+
+$(document).ready(function(){
+    // ---------- 折り畳み要素の走査
+    $('.js-fold').each(function(index,element){
+        foldDomDic[$(element).attr('id')] = new FoldDom(element, $(element).attr('data-content') === "━")
+    });
+    // ------------------ パスワード表示トグルの走査
+    $('.toggled-pwd').each(function(index,element){
+        let pwdInput = $('input',element);
+        let icon = $('.toggled-pwd-icon',element);
+        let id = pwdInput.attr('id');
+        pwdDoms[id] = new PwdDom(pwdInput,icon,false);
+        icon.click(function(){
+            pwdToggleCheck(id);
+        });
+    });
+});
+
+// section 折り畳み
+/* 折り畳み
+// トグル要素にclass="js-fold" id="xxx" data-content="━" onclick="FoldCheck(xxx)"
+// data-contentは「━」「╋」（「けいせん」から変換）
+// トグル要素の直後の要素を折り畳み操作する
+--------------------------------------------------------- */
+// ---------- 折り畳み要素辞書
+var foldDomDic = {};
+function FoldDom(dom,extracted){
+    this.dom = dom;
+    this.extracted = extracted;
+}
+// ---------- トグルクリック時
+function FoldCheck(id){
+    if(!(id in foldDomDic)){
+        return false;
+    }
+    foldDomDic[id].extracted = !foldDomDic[id].extracted;
+    var e = foldDomDic[id].dom;
+    if(foldDomDic[id].extracted){
+        $(e).attr('data-content','━');
+        $(e).next().slideDown(200);
+    }else{
+        $(e).attr('data-content','╋');
+        $(e).next().slideUp(200);
+    }
+}
+
+// section パスワードフォーム
+/* パスワードフォーム
+toggled-pwdクラスの中に
+    1つのinput（パスワード入力フォーム idつき。inputはこの1つだけであることが必要）
+    1つのtoggled-pwd-iconクラスのdiv（目玉アイコン。パスワード表示時は.showが追加される。）
+    例
+    <div class="toggled-pwd">
+        <input type="password" id="pin" name="pin" placeholder="WEBパスワードを入力">
+        <div class="toggled-pwd-icon"></div>
+    </div>
+--------------------------------------------------------- */
+var pwdDoms = {};
+function PwdDom(input,icon,showed){
+    this.input = input;
+    this.icon = icon;
+    this.showed = showed;
+}
+function pwdToggleCheck(id){
+    if(!(id in pwdDoms)){
+        return false;
+    }
+    pwdDoms[id].showed = !pwdDoms[id].showed;
+    let input = pwdDoms[id].input;
+    let icon = pwdDoms[id].icon;
+    if(pwdDoms[id].showed){
+        input.attr('type','text');
+        icon.addClass('show');
+    }else{
+        input.attr('type','password');
+        icon.removeClass('show');
+    }
+}

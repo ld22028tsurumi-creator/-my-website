@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* =========================================================
+   アプリ誘導ブロック（.footer-navi の上に重ねて下部固定）
+   ---------------------------------------------------------
+   ・既存 .footer-navi(common.css) の sticky をラッパー側に集約し、
+     アプリ誘導ブロックと振込/返済ナビを一体で下部固定する。
+   ・スタイルの流儀は common.css の .footer-navi に合わせて
+     flex / max-width:768px / -webkit- プレフィックス併記 とする。
+   ========================================================= */
+
+/* --- 下部固定ラッパー（app-block + footer-navi を内包） --- */
+.footer-fixed {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    max-width: 768px;
+    margin-inline: auto;
+}
+
+/* ラッパー内に入れた .footer-navi は二重 sticky を避けて静的配置に戻す */
+.footer-fixed .footer-navi {
+    position: static;
+    max-width: none;
+    margin-inline: 0;
+}
+
+/* --- アプリ誘導ブロック本体 --- */
+.app-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border-top: 1px solid #aaaaaa;
+}
+
+/* 左：アプリアイコン */
+.app-block-icon {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 48px;
+    margin-top: 2px;
+}
+
+.app-block-icon img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* 中央〜右：テキスト + アクション */
+.app-block-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.app-block-title {
+    margin: 0 0 6px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #333333;
+}
+
+/* メリット（チェック付き箇条書き） */
+.app-block-merits {
+    margin: 0 0 8px;
+    padding: 0;
+    list-style: none;
+}
+
+.app-block-merits li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 11px;
+    line-height: 16px;
+    color: #333333;
+}
+
+.app-block-merits li:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '\2713'; /* ✓ チェックマーク */
+    color: #333333;
+    font-weight: 700;
+}
+
+/* アクション行：左に「Web版で続行」、右に「切り替える」ボタン */
+.app-block-actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.app-block-continue {
+    font-size: 14px;
+    line-height: 18px;
+    color: #888888;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.app-block-switch {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 8px 16px;
+    background-color: #0064d2;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+}

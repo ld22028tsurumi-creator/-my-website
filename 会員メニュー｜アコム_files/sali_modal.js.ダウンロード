@@ -1,0 +1,45 @@
+document.addEventListener('DOMContentLoaded', function() {
+    initModal();
+});
+
+
+const initModal = ()=>{
+    let modals = document.getElementsByClassName('Modal');
+    for(let i=0;i<modals.length;i++){
+        let closeBase = document.createElement('div');
+        closeBase.classList.add('Modal--closeBase');
+        closeBase.addEventListener('click',()=>closeAllModal());
+        modals[i].prepend(closeBase);
+    }
+    let bases = document.getElementsByClassName('Modal--base');
+    for(let i=0;i<bases.length;i++){
+        bases[i].addEventListener('click',(evt)=>evt.preventDefault());
+    }
+    // OpenButton
+    let buttons = document.getElementsByClassName('ModalButton');
+    for(let i = 0;i<buttons.length;i++){
+        buttons[i].addEventListener('click',evt => openModal(evt.target.id));
+    }
+    let closeIcons =document.getElementsByClassName('Modal--closeIcon');
+    for(let i=0;i<closeIcons.length;i++){
+        closeIcons[i].addEventListener('click',()=>closeAllModal());
+    }
+    let closeTexts = document.getElementsByClassName('Modal--closeText');
+    for(let i =0;i<closeTexts.length;i++){
+        closeTexts[i].addEventListener('click',()=>closeAllModal());
+    }
+}
+
+const openModal = (_id)=>{
+    let modalID = _id.replace(/^ModalButton-/,'');
+    let modalElement = document.getElementById(`Modal-${modalID}`);
+    closeAllModal();
+    modalElement.style.display = 'flex';
+}
+
+const closeAllModal = ()=>{
+    let modals = document.getElementsByClassName('Modal');
+    for (let i = 0;i<modals.length;i++){
+        modals[i].style.display = 'none';
+    }
+}

@@ -1,0 +1,30 @@
+﻿var menuOpened = false;
+
+$(function () {
+    var h = window.innerHeight;
+    $('.menu-main').css({'height': h});
+});
+
+$(window).resize(function () {
+    var h = window.innerHeight;
+    $('.menu-main').css({'height': h});
+});
+
+function OpenMenu()
+{
+    console.log('OpenMenu');
+    menuOpened = true;
+    $('body').css({overflow:"hidden"});
+    $("nav").animate({left:0},250);
+    $("#nav-mask-wrapper").css({pointerEvents:"auto"});
+    $("#nav-mask").css({pointerEvents:"auto"});
+}
+
+function CloseMenu()
+{
+    menuOpened = false;
+    $('body').css({overflow:"inherit"});
+    $("nav").animate({left:"-100%"},250);
+    $("#nav-mask-wrapper").css({pointerEvents:"none"});
+    $("#nav-mask").css({pointerEvents:"none"});
+}

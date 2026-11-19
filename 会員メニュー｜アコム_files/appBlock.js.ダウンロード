@@ -1,0 +1,97 @@
+/* =========================================================
+   アプリ誘導ブロック 表示制御
+   ---------------------------------------------------------
+   表示条件（サーバーは情報を一方的に渡すのみ）:
+   ・サーバーがログインセッション固有トークンを
+     <input type="hidden" id="appBlockSessionToken"> に埋め込む。
+   ・「Web版で続行」押下時、そのトークンを localStorage に保存する。
+   ・次回以降、保存トークン === サーバートークン の間は非表示を継続。
+     セッションが変わるとトークンが変わり不一致になるため再表示される。
+   ・トークンが取得できない場合（サーバー未実装・空値）は表示する
+     （誘導が目的のためフォールバックは「表示」側に倒す）。
+
+   ※マイページTOP（このページ）に来た時点で毎回この判定が走るため、
+     「別画面から戻ってきた」「アプリから遷移してきた」ケースも
+     特別な分岐なしに同じロジックで表示される。
+   ========================================================= */
+(function () {
+    'use strict';
+
+    // localStorage の保存キー（「最後にWeb版続行したセッションのトークン」を1個保持）
+    const STORAGE_KEY = 'appBlockDismissedToken';
+    // サーバーがトークンを埋め込む hidden 要素の id
+    const TOKEN_INPUT_ID = 'appBlockSessionToken';
+
+    // localStorage が使えない環境（プライベートモード等）でも落ちないようにラップ
+    function safeGet(key) {
+        try {
+            return window.localStorage.getItem(key);
+        } catch (e) {
+            return null;
+        }
+    }
+    function safeSet(key, value) {
+        try {
+            window.localStorage.setItem(key, value);
+        } catch (e) {
+            /* 保存できなくても致命的ではないため握りつぶす */
+        }
+    }
+
+    // サーバーが埋め込んだセッショントークンを取得（無ければ空文字）
+    function getServerToken() {
+        const input = document.getElementById(TOKEN_INPUT_ID);
+        if (!input) {
+            return '';
+        }
+        return (input.value || '').replace(/^\s+|\s+$/g, '');
+    }
+
+    // サーバーが埋め込む #isMobile の値が 'false' のときのみPCと判定
+    function isPcView() {
+        const input = document.getElementById('isMobile');
+        return !!(input && input.value === 'false');
+    }
+
+    function init() {
+        const appBlock = document.querySelector('.app-block');
+        if (!appBlock) {
+            return; // このページにアプリ誘導ブロックが無ければ何もしない
+        }
+
+        // PCでは常に非表示
+        if (isPcView()) {
+            appBlock.style.display = 'none';
+            return;
+        }
+
+        const serverToken = getServerToken();
+        const savedToken = safeGet(STORAGE_KEY);
+
+        // 判定: トークンが取れない→表示 / 保存トークンと一致→非表示 / それ以外→表示
+        if (serverToken !== '' && savedToken === serverToken) {
+            appBlock.style.display = 'none';
+        } else {
+            appBlock.style.display = '';
+        }
+
+        // 「Web版で続行」押下: その場でブロックを消し、トークンを保存（遷移はしない）
+        const continueBtn = appBlock.querySelector('.app-block-continue');
+        if (continueBtn) {
+            continueBtn.addEventListener('click', function (ev) {
+                ev.preventDefault(); // href="#" によるページ先頭ジャンプを抑止
+                // サーバートークンがある時だけ保存（空保存だと次回フォールバックで再表示されてしまう）
+                if (serverToken !== '') {
+                    safeSet(STORAGE_KEY, serverToken);
+                }
+                appBlock.style.display = 'none';
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

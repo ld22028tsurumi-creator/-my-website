@@ -1,0 +1,870 @@
+@charset "UTF-8";
+
+/* 前後のアイコン
+// file : アイコンへのパス
+// width,height : 幅・高さ
+// top : オフセット
+--------------------------------------------------------- */
+/* 折り畳み
+--------------------------------------------------------- */
+/* リスト
+--------------------------------------------------------- */
+/* visually-hidden
+--------------------------------------------------------- */
+/* ラジオボタン　直径25px、非選択灰色・選択赤
+inputを内包するlabelにクラスを指定する
+--------------------------------------------------------- */
+/* 丸数字リスト
+olにクラスを指定
+--------------------------------------------------------- */
+/* ヘッダ1
+--------------------------------------------------------- */
+h1 {
+    position: relative;
+    padding: 0 20px;
+    background-color: #DB0016;
+    line-height: 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h1 a {
+    position: absolute;
+    display: inline-block;
+    right: 20px;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+h1 a:after {
+    display: inline-block;
+    margin-left: 4px;
+    position: relative;
+    top: 2px;
+    width: 14px;
+    height: 14px;
+    background-image: url("../../../../sp/sa/ms/img/sali_list_arrow_right_red.png");
+    background-size: contain;
+    content: '';
+}
+
+h1::before {
+    margin-right: 12px;
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    top: -2px;
+    background-image: url("../../../../sp/sa/ms/img/sali_icon_user.png");
+    background-size: contain;
+    vertical-align: middle;
+    content: '';
+}
+
+/* SALI01お知らせリスト
+--------------------------------------------------------- */
+.sali01-info-list {
+    background-color: white;
+    padding: 5px 20px;
+}
+
+.sali01-info-list li {
+    padding: 10px 0;
+    line-height: 22px;
+    font-size: 14px;
+    border-bottom: 1px solid #E8E8E8;
+    display: none;
+}
+
+.sali01-info-list li:last-child {
+    border: none;
+}
+
+.sali01-info-list a {
+    position: relative;
+    display: block;
+    padding-right: 20px;
+}
+
+.sali01-info-list a:after {
+    display: inline-block;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    right: 0;
+    top: calc(50% - 7px);
+    background-image: url("../../../../sp/sa/ms/img/sali_list_arrow_right_red.png");
+    background-size: contain;
+    content: '';
+}
+
+.sali01-info-list li:nth-of-type(-n+3) {
+    display: block;
+}
+
+.sali01-info-list #js-foldnote_btn {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    text-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.sali01-info-list #js-foldnote_btn img {
+    margin-right: 1em;
+}
+
+
+.sali01-balance {
+    margin-top: 30px;
+}
+
+.sali01-balance .sali01-balance-none {
+    margin-bottom: 30px;
+    background: white;
+}
+
+.sali01-balance .sali01-balance-none .none-title {
+    border-bottom: 2px solid #E9E9E9;
+    padding: 15px 20px;
+    line-height: 24px;
+    color: #E6002D;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sali01-balance .sali01-balance-card {
+    margin-bottom: 30px;
+    background: white;
+}
+
+.sali01-balance .sali01-balance-card .card-title {
+    border-bottom: 2px solid #E9E9E9;
+    padding: 15px 20px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sali01-balance .sali01-balance-card .card-title:before {
+    display: inline-block;
+    width: 30px;
+    height: 27px;
+    background-image: url("../../../../sp/sa/ms/img/sali01_icon_card.png");
+    background-size: contain;
+    position: relative;
+    top: 50%;
+    content: '';
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.sali01-balance .sali01-balance-card .card-title::after {
+    right: 20px;
+}
+
+.sali01-balance .sali01-balance-card .card-body {
+    padding: 16px 20px 24px 20px;
+}
+
+.sali01-balance .sali01-balance-shopping {
+    background: white;
+}
+
+.sali01-balance .sali01-balance-shopping .shopping-title {
+    border-bottom: 2px solid #E9E9E9;
+    padding: 16px 20px;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sali01-balance .sali01-balance-shopping .shopping-title:before {
+    display: inline-block;
+    width: 30px;
+    height: 27px;
+    background-image: url("../../../../sp/sa/ms/img/sali01_icon_shopping.png");
+    background-size: contain;
+    position: relative;
+    top: 50%;
+    content: '';
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.sali01-balance .sali01-balance-shopping .shopping-title::after {
+    right: 20px;
+}
+
+.sali01-balance .sali01-balance-shopping .shopping-body {
+    padding: 16px 20px 24px 20px;
+}
+
+.sali01-balance hr {
+    margin: 15px 0;
+    height: 2px;
+    background-color: #E9E9E9;
+    border: none;
+}
+
+.sali01-balance .available {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.sali01-balance .available .available-title {
+    line-height: 35px;
+    font-size: 14px;
+}
+
+.sali01-balance .available .available-amount {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-right: 15px;
+    line-height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.sali01-balance .available .available-amount-empty {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding-left: 3em;
+    line-height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.sali01-balance .available .available-button {
+    font-size: 12px;
+}
+
+.sali01-balance .next-repayment {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.sali01-balance .next-repayment .next-repayment-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.sali01-balance .next-repayment .next-repayment-left-title {
+    font-size: 14px;
+}
+
+.sali01-balance .next-repayment .next-repayment-left-amount {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.sali01-balance .next-repayment .next-repayment-left-days {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    text-align: right;
+    padding-right: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+}
+
+.sali01-balance .next-repayment .next-repayment-left-days span {
+    font-size: 17px;
+    color: #DB0016;
+}
+
+.sali01-balance .next-repayment .next-repayment-button {
+    font-size: 12px;
+}
+
+.sali01-balance .sali01-table {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.sali01-balance .sali01-table dt {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sali01-balance .sali01-table dd {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.sali01-balance .sali01-multitable {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sali01-balance .sali01-multitable dl {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    margin-left: 45px;
+}
+
+.sali01-balance .sali01-multitable dl dt {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    width: 50%;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sali01-balance .sali01-multitable dl dd {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    width: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.sali01-balance .sali01-button-active {
+    display: block;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 73px;
+    height: 35px;
+    font-weight: bold;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    line-height: 33px;
+    text-align: center;
+    color: #DB0016;
+}
+
+.sali01-balance .sali01-button-inactive {
+    display: block;
+    margin-top: 7px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 73px;
+    height: 35px;
+    background-color: #F4F4F9;
+    font-weight: bold;
+    border-radius: 4px;
+    line-height: 35px;
+    text-align: center;
+    color: #AAAAAA;
+}
+
+.sali01-balance .sali01-button-hidden {
+    width: 73px;
+    height: 35px;
+}
+
+.sali01-balance .explain-link {
+    text-align: right;
+    font-size: 12px;
+    color: #DB0016;
+}
+
+.sali01-balance .explain-link a:after {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url("../../../../sp/sa/ms/img/mini_arrow_right_red.png");
+    background-size: contain;
+    position: relative;
+    top: -2px;
+    content: '';
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+/* アコムからのお知らせ
+--------------------------------------------------------- */
+.sali01-info-fromacom {
+    margin-top: 30px;
+}
+
+.sali01-info-fromacom .sali01-info-fromacom-title {
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    padding: 16px 20px;
+    border-bottom: 2px solid #E9E9E9;
+    cursor: pointer;
+}
+
+.sali01-info-fromacom .sali01-info-fromacom-title::before {
+    display: inline-block;
+    width: 30px;
+    height: 27px;
+    background-image: url("../../../../sp/sa/ms/img/icon_sali01_info_fromacom.png");
+    background-size: contain;
+    position: relative;
+    top: -2px;
+    content: '';
+    vertical-align: middle;
+}
+
+.sali01-info-fromacom .sali01-info-fromacom-title::after {
+    right: 20px;
+}
+
+.sali01-info-fromacom ul {
+    background-color: white;
+    padding: 0 20px;
+}
+
+.sali01-info-fromacom ul li {
+    position: relative;
+    font-size: 14px;
+    border-bottom: 1px solid #D1D1D1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.sali01-info-fromacom ul li:after {
+    display: inline-block;
+    width: 6px;
+    height: 8px;
+    background-image: url("../../../../sp/sa/ms/img/list_after_arrow_right.png");
+    background-size: contain;
+    position: relative;
+    top: 0px;
+    content: '';
+    vertical-align: middle;
+}
+
+.sali01-info-fromacom ul li:last-of-type {
+    border: none;
+}
+
+.sali01-info-fromacom ul a {
+    display: inline-block;
+    padding: 20px 0;
+    width: calc(100% - 10px);
+}
+
+.sali01-app {
+    margin-top: 40px;
+    background-color: #E6002D;
+    border: 2px solid #E6002D;
+}
+
+.sali01-app .sali01-app-title {
+    padding: 4px 0 6px 0;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sali01-app .sali01-app-body {
+    background-color: white;
+    padding: 20px 20px 20px 20px;
+}
+
+.sali01-app .sali01-app-foruser {
+    font-size: 16px;
+    font-weight: bold;
+    color: #E6002D;
+    margin: 0 auto 0 auto;
+    height: 46px;
+}
+
+.sali01-app .sali01-app-foruser::before {
+    display: inline-block;
+    width: 50px;
+    height: 46px;
+    background-image: url("../../../../sp/sa/ms/img/sali01_icon_app.png");
+    background-size: contain;
+    position: relative;
+    top: -3px;
+    content: '';
+    vertical-align: middle;
+    float: left
+}
+
+.sali01-app ul {
+    margin: 10px auto 0 auto;
+}
+
+.sali01-app ul li {
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 22px;
+    text-indent: -22px;
+}
+
+.sali01-app ul li::before {
+    margin-right: 7px;
+    display: inline-block;
+    width: 15px;
+    height: 13px;
+    background-image: url("../../../../sp/sa/ms/img/sali01_list_check.png");
+    background-size: contain;
+    position: relative;
+    top: 0;
+    content: '';
+    vertical-align: middle;
+}
+
+.sali01-app .sali01-app-storelinks {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 0.83fr 1fr;
+    gap: 10px;
+}
+.sali01-app .sali01-app-storelinks > div {
+    text-align: center;
+}
+.app-qr img{
+    width: 93px;
+    height: 93px;
+    margin: 0 auto 10px;
+}
+.sali01-app .sali01-app-storelinks .apple-banner{
+    width: 133px;
+    height: 48px;
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.sali01-app .sali01-app-storelinks .android-banner{
+    width: 162px;
+    height: 49px;
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.sali01-app .sali01-app-detail-link {
+    margin: 0px 6px 0 0;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    text-align: right;
+    font-size: 12px;
+}
+
+.sali01-app .sali01-app-detail-link a:after {
+    margin-left: 4px;
+    content: url("../../../../sp/sa/ms/img/mini_arrow_right_red.png");
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url("../../../../sp/sa/ms/img/mini_arrow_right_red.png");
+    background-size: contain;
+    position: relative;
+    top: -1px;
+    content: '';
+    vertical-align: middle;
+}
+
+.sali01-contact {
+    margin-top: 10px;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sali01-contact .sali01-contact-text {
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.sali01-contact .sali01-contact-tel {
+    line-height: 70px;
+    font-size: 30px;
+    color: #E6002D;
+}
+
+.bottom-meta {
+    padding-top: 15px;
+}
+
+.navi-to-top {
+    margin-bottom: 40px;
+}
+
+.link-page-top {
+    margin-top: 40px;
+}
+
+.appIcon img {
+    display: block;
+    width: 50px;
+    height: auto;
+    border: 1px solid #f0f0f0;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#banner,
+#banner_ios {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    display: none;
+    position: relative;
+}
+
+#banner .appIcon,
+#banner .appText,
+#banner_ios .appIcon,
+#banner_ios .appText {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#banner .appIcon,
+#banner_ios .appIcon {
+    padding-left: 15px;
+}
+
+#banner a div.default,
+#banner_ios a div.default {
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+    background-image: none;
+    background-color: #333;
+    color: #fff;
+}
+
+#banner .appText,
+#banner_ios .appText {
+    font-size: 13px;
+    margin-left: 5px;
+    max-width: 270px;
+    line-height: 1.5;
+}
+
+#banner .hideBtn,
+#banner_ios .hideBtn {
+    position: absolute;
+    top: 50%;
+    right: 11px;
+    margin-top: -22px;
+    padding: 10px 10px;
+}
+
+.hideBtn .dli-close {
+    display: inline-block;
+    vertical-align: middle;
+    color: #878787;
+    line-height: 1;
+    width: 1em;
+    height: 0.1em;
+    background: currentColor;
+    border-radius: 0.1em;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.hideBtn .dli-close::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: rotate(90deg);
+}
+
+.campaign-banner {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-top: 20px;
+}
+
+.campaign-banner p {
+    margin-top: 10px;
+}
+
+.campaign-banner img {
+    width: min(100vw, 100%);
+}
+
+
+/* ----- モーダル
+ */
+.sali01-balance .sali01-balance-card .next-repayment .next-repayment-left-days .ModalButton,
+.sali01-balance-shopping .shopping-body .next-repayment .next-repayment-left-days .ModalButton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    background-color: #e6002d;
+    color: white;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.Modal--body p {
+    font-size: 12px;
+}
+
+/* ----- SALI01-O1引き落とし金額変更リンク
+ */
+.xali01-ChangeRepaymentAmount {
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    justify-content: right;
+    align-items: center;
+}
+
+.xali01-ChangeRepaymentAmount > div {
+    border-radius: 7px;
+    padding-left: 12px;
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+.xali01-ChangeRepaymentAmount .__leftBox {
+    display: inline-block;
+    padding-block: 8px;
+    padding-right: 8px;
+}
+
+.xali01-ChangeRepaymentAmount .__separator {
+    height: 20px;
+}
+
+.xali01-ChangeRepaymentAmount .__rightBox {
+    display: inline-block;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 73px;
+    height: 35px;
+    font-weight: bold;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    line-height: 33px;
+    text-align: center;
+    color: #DB0016;
+}
+/* 非活性 */
+.xali01-ChangeRepaymentAmount.__disabled {
+    pointer-events: none;
+    opacity: 0.9;
+}
+.xali01-ChangeRepaymentAmount.__disabled .__leftBox {
+    font-weight: normal;
+    color: #AAAAAA;
+}
+.xali01-ChangeRepaymentAmount.__disabled .__rightBox {
+    margin-top: 7px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 73px;
+    height: 35px;
+    background-color: #F4F4F9;
+    font-weight: bold;
+    border-radius: 4px;
+    line-height: 35px;
+    text-align: center;
+    color: #AAAAAA;
+    border: none;
+}
+
+/* その下の日数カウントダウン */
+.xali01-DaysCount__afterChangeRepaymentAmount {
+    text-align: right;
+    padding-right: 88px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+}
+.xali01-DaysCount__afterChangeRepaymentAmount span{
+    font-size: 17px;
+    color: #DB0016;
+}
+
+.mt0{
+    margin-top: 0 !important;
+}
+
+/* ===========================================
+ * QR付きストアアイコン部
+ * ======================================== */
+.StoreLinks{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 0.83fr 1fr;
+    gap: 10px;
+}
+.StoreLinks> div {
+    text-align: center;
+}
+.app-qr img{
+    width: 93px;
+    height: 93px;
+    margin: 0 auto 10px;
+}
+.StoreLinks .apple-banner{
+    width: 133px;
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.StoreLinks .android-banner{
+    width: 162px;
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}

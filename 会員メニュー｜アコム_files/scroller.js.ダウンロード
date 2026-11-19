@@ -1,0 +1,14 @@
+$(function () {
+    $('a[href^="#"]').click(function () {
+        const speed = 200;
+        const href = $(this).attr("href");
+        let target = $(href == "#" || href == "" ? 'html' : href);
+
+        // ターゲットが存在しない場合はposition 0にする
+        const headerHeight = 55; // ヘッダーの高さ
+        const position = target.length > 0 ? target.offset().top - headerHeight : 0;
+
+        $("html, body").animate({ scrollTop: position }, speed, "swing");
+        return false;
+    });
+});

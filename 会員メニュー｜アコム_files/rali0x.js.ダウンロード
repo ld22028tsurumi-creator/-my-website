@@ -1,0 +1,20 @@
+// DOMが読み込み完了後に実行
+document.addEventListener('DOMContentLoaded', function() {
+    // isMobile要素の値を取得
+    const isMobileElement = document.getElementById('isMobile');
+    
+    // 要素が存在する場合
+    if (isMobileElement) {
+        const isMobile = isMobileElement.value;
+        
+        // isMobileがtrueの場合、js-pcOnlyクラスの要素を非表示にする
+        if (isMobile === 'true') {
+            const pcOnlyElements = document.getElementsByClassName('js-pcOnly');
+            
+            // すべての該当要素に対してdisplay: noneを設定
+            for (let i = 0; i < pcOnlyElements.length; i++) {
+                pcOnlyElements[i].style.display = 'none';
+            }
+        }
+    }
+});

@@ -1,0 +1,31 @@
+let notesParent;
+let notes;
+let foldNoteOpened = false;
+let closedHeight;
+const btnOpen = '<img src="/ibwebp/staticcontents/sp/sa/ms/img/list_after_arrow_down_.png" width="11" height="8" alt="">‚à‚Á‚ÆŒ©‚é';
+const btnClosed= '<img src="/ibwebp/staticcontents/sp/sa/ms/img/list_after_arrow_up_.png" width="11" height="8" alt="">•Â‚¶‚é';
+$(function () {
+    notesParent = $("#js-foldnote");
+    notes = $("#js-foldnote li");
+    $("#js-foldnote li:nth-child(n+4)").addClass("folded-note");
+    countNotes();
+});	
+
+function countNotes(){
+    if($("#js-foldnote>li").length>3){
+        notesParent.append('<li id="js-foldnote_btn"></li>');
+        $("#js-foldnote_btn").append(btnOpen).click(foldnoteCheck);
+    }
+    closedHeight = notesParent.innerHeight();
+}
+
+function foldnoteCheck(){
+    foldNoteOpened = !foldNoteOpened;
+    if(foldNoteOpened){
+        $(".folded-note").slideDown();
+        $("#js-foldnote_btn").html(btnClosed);
+    }else{
+        $(".folded-note").slideUp();
+        $("#js-foldnote_btn").html(btnOpen);
+    }
+}

@@ -1,0 +1,91 @@
+.HeaderChatMenu {
+  height: 55px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right; }
+
+.HeaderChatMenu .Gacha{
+    display: grid;
+    grid-template-rows: 24px 1fr;
+    align-items: center;
+    cursor: pointer;
+
+}
+.HeaderChatMenu .Gacha img{
+    display: block;
+    --size: 24px;
+    width: var(--size);
+    height: var(--size);
+}
+.HeaderChatMenu .Gacha span:nth-child(1){
+    display: grid;
+    place-items: center;
+
+}
+.HeaderChatMenu .Gacha span:nth-child(2){
+    display: block;
+    font-size: 11px;
+    padding-top: 2px;
+    line-height: 1;
+    font-weight: 500;
+    color: #DB0016;
+}
+
+.HeaderChatMenu .Chat0{
+    display: grid;
+    grid-template-rows: 24px 1fr;
+    align-items: center;
+    cursor: pointer;
+}
+.HeaderChatMenu .Chat0 img{
+    display: block;
+    --wd: 39px;
+    --ht: 24px;
+    width: var(--wd);
+    height: var(--ht);
+}
+.HeaderChatMenu .Chat0 span:nth-child(1){
+    display: grid;
+    place-items: center;
+}
+.HeaderChatMenu .Chat0 span:nth-child(2){
+    display: block;
+    font-size: 11px;
+    padding-top: 2px;
+    line-height: 1;
+    font-weight: 500;
+    color: #DB0016;
+}
+.HeaderChatMenu .Chat{
+    display: grid;
+    grid-template-rows: 24px 1fr;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 13px;
+}
+.HeaderChatMenu .Chat img{
+    display: block;
+    --wd: 39px;
+    --ht: 24px;
+    width: var(--wd);
+    height: var(--ht);
+}
+.HeaderChatMenu .Chat span:nth-child(1){
+    display: grid;
+    place-items: center;
+}
+.HeaderChatMenu .Chat span:nth-child(2){
+    display: block;
+    font-size: 11px;
+    padding-top: 2px;
+    line-height: 1;
+    font-weight: 500;
+    color: #DB0016;
+}
